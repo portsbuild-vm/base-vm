@@ -24,7 +24,7 @@ import urllib.request
 
 CONF_DIR = "conf"
 DATAFILE = os.path.join(".github", "data", "datafile.ini")
-BUILDER_ORG = "anyvm-org"
+BUILDER_ORG = "portsbuild-vm"
 API = "https://api.github.com"
 ASSIGN_RE = re.compile(rb"^(BUILDER_VERSION|ANYVM_VERSION)=([^\r\n]*)(\r?\n?)$")
 KEYMAP = {"BUILDER_VERSION": "builder", "ANYVM_VERSION": "anyvm"}

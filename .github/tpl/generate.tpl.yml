@@ -97,7 +97,7 @@ jobs:
               echo "${base}: no BUILDER_VERSION, skip"
               continue
             fi
-            url="https://github.com/anyvm-org/${os}-builder/releases/download/v${bv}/releases.json"
+            url="https://github.com/portsbuild-vm/${os}-builder/releases/download/v${bv}/releases.json"
             idx="/tmp/relindex/${bv}.json"
             # Releases cut before the index asset existed (and old pins with
             # no tag at all, e.g. openbsd 7.2-7.6) 404 here. The step runs
