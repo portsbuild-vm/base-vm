@@ -71,7 +71,7 @@ def _fetch(url, method="GET"):
     so a GET-based existence check would transfer tens of GB per nightly
     run and read each body whole into runner RAM."""
     req = urllib.request.Request(url, method=method, headers={
-        "User-Agent": "vmactions-bump-bot/1.0"})
+        "User-Agent": "portsbuild-bump-bot/1.0"})
     token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
     if token and url.startswith(API):
         req.add_header("Authorization", "Bearer %s" % token)

@@ -1,5 +1,5 @@
 {
-  "name": "vmactions-{{VM_NAME}}",
+  "name": "portsbuild-vm-{{VM_NAME}}",
   "version": "{{LATEST_VERSION_NUMBER}}",
   "description": "GitHub actions for {{VM_NAME}}",
   "type": "module",
