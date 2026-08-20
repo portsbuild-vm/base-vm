@@ -1,6 +1,6 @@
 # Run GitHub CI in BaseVM 
 
-![Test](https://github.com/vmactions/base-vm/workflows/Test/badge.svg)
+![Test](https://github.com/portsbuild-vm/base-vm/workflows/Test/badge.svg)
 
 
 
@@ -68,7 +68,7 @@ jobs:
     - uses: actions/checkout@v7
     - name: Test in BaseVM
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -124,7 +124,7 @@ The code is shared from the host to the VM via `rsync` by default, you can choos
 
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         sync: sshfs  # or: nfs
 
@@ -146,7 +146,7 @@ When using `rsync` or `scp`,  you can define `copyback: false` to not copy files
 
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         sync: rsync
         copyback: false
@@ -169,7 +169,7 @@ You can add NAT port between the host and the VM.
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         nat: |
           "8080": "80"
@@ -188,7 +188,7 @@ The default memory of the VM is 6144MB, you can use `mem` option to set the memo
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         mem: 4096
 ...
@@ -202,7 +202,7 @@ The VM is using all the cpu cores of the host by default, you can use `cpu` opti
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         cpu: 3
 ...
@@ -217,7 +217,7 @@ It uses [the BaseVM 13.1](conf/default.release.conf) by default, you can use `re
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         release: "13.2"
 ...
@@ -229,7 +229,7 @@ You can also give only the leading, `.` separated part of a release. The newest 
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         release: "13"
 ...
@@ -245,7 +245,7 @@ The vm is using x86_64(AMD64) by default, but you can use `arch` option to chang
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         arch: aarch64
 ...
@@ -267,7 +267,7 @@ Support custom shell:
     - uses: actions/checkout@v7
     - name: Start VM
       id: vm
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         sync: nfs
     - name: Custom shell step 1
@@ -298,7 +298,7 @@ You can also use `custom-shell-name` to set a custom name for the shell wrapper:
     - uses: actions/checkout@v7
     - name: Start VM
       id: vm
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         sync: nfs
         custom-shell-name: vmsh
@@ -324,7 +324,7 @@ If the time in VM is not correct, You can use `sync-time` option to synchronize 
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         sync-time: true
 ...
@@ -339,7 +339,7 @@ By default, the action caches `apt` packages on the host and VM images/artifacts
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         disable-cache: true
 ...
@@ -354,7 +354,7 @@ The `prepare` step (installing packages etc.) normally runs on every build. With
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         cache-after-prepare: true
         prepare: |
@@ -387,7 +387,7 @@ Then use it in the workflow:
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
 
@@ -400,7 +400,7 @@ You can also set the `vnc-password` parameter to set a custom password to protec
 ...
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         vnc-password: ${{ secrets.VNC_PASSWORD }}
