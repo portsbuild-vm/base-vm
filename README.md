@@ -174,6 +174,7 @@ The default memory of the VM is 6144MB, you can use `mem` option to set the memo
 ```
 
 
+
 The VM is using all the cpu cores of the host by default, you can use `cpu` option to change the cpu cores:
 
 ```yaml
@@ -250,12 +251,12 @@ Support custom shell:
       with:
         sync: nfs
     - name: Custom shell step 1
-      shell:  {0}
+      shell: basevm {0}
       run: |
         pwd
         echo "this is step 1, running inside the VM"
     - name: Custom shell step 2
-      shell:  {0}
+      shell: basevm {0}
       run: |
         pwd
         echo "this is step 2, running inside the VM"
