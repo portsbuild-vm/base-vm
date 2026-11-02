@@ -357,7 +357,7 @@ The cache key only covers the `prepare` text itself. When `prepare` runs a scrip
     - uses: actions/checkout@v7
     - name: Test
       id: test
-      uses: vmactions/base-vm@v0
+      uses: portsbuild-vm/base-vm@v0
       with:
         cache-after-prepare: true
         cache-after-prepare-key-suffix: deps-${{ hashFiles('ci/install-deps.sh') }}
